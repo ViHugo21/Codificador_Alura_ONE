@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Decodificador</title>
+</head>
+<body class="light_mode">
+    <header>
+        <img id="logo" src="img/sun_logo.png" alt="Imagem de um sol">
+        <div id="button_darklight_mode">
+            <input type="checkbox" id="darkmode_toggle">
+            <label onclick="Dark_Light_Mode()" for="darkmode_toggle"></label>
+        </div>
+    </header>
+
+    <main>
+        <div id="user_input">
+            <textarea id="text_input" placeholder="Digite aqui seu texto"></textarea>
+            <br>
+            <div id="cod_options">
+                <input checked class="radio" value="cesar" type="radio" name="code_option" id="cifra_cesar">
+                <label class="label" for="cifra_cesar">Cifra de César</label>
+                
+                <input class="radio" value="morse" type="radio" name="code_option" id="cod_morse">
+                <label class="label" for="cod_morse">Código Morse</label>
+            </div>    
+            <br>
+            <button id="cod" onclick="Codificar()" class="light_mode_button_1">Codificar</button>
+            <button id="decod" onclick="Decodificar()" class="light_mode_button_2">Decodificar</button>
+        </div>
+        <div class="light_mode_aside" id="message_output">
+            <textarea readonly id="output" placeholder="Seu texto gerado aparecerá aqui"></textarea>
+            <div id="no_input">
+                <img id="img_aside" src="img/cript.png" alt="Cadeado de criptografia">
+                <h2>Nenhum texto encontrado</h2>
+                <p>Digite um texto na caixa ao lado para começar.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Desenvolvido por Vitor Hugo</p>
+    </footer>
+</body>
+    <script src="script.js"></script>
+    <script src="script_darkLight_mode.js"></script>
+</html>
