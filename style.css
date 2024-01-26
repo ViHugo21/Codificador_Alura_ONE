@@ -150,6 +150,8 @@ textarea{
     background: none;
     text-align: justify;
     resize: none;
+    color: #FFFFFF;
+    font-weight: 600;
 }
 textarea::placeholder{
     font-weight: 600;
