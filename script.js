@@ -1,55 +1,6 @@
 abc = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 morse = [' / ','.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..']
 
-frankstein = '';
-palavra_decodificada = '';
-
-palavra_codificada = '- . ... - .- -. -.. --- / -.. . -.-. --- -.. .. ..-. .. -.-. .- -.-. .- --- / -.. --- / .--. .-. --- --. .-. .- -- .- / .--. .- .-. .- / -.-. --- -.. .. --. --- / -- --- .-. ... . / . -- / - . -..- - --- / .--. .- -.. .-. .- --- '
-
-letra = '';
-
-for(m = 0; m < palavra_codificada.length; m++){
-    if(palavra_codificada[m] === ' '){
-        
-        indice = morse.indexOf(letra)
-
-        palavra_decodificada += abc[indice]
-
-        letra = ''
-    }else if(palavra_codificada[m] === '/'){
-        m++;
-        palavra_decodificada += ' '
-        letra = ''
-    }
-    else{
-        letra += palavra_codificada[m]
-    }
-    
-}
-
-console.log(teste)
-console.log(palavra_decodificada)
-
-
-/*for(m = 0; m < teste.length;m++){
-    indice = abc.indexOf(teste[m])
-    letra_morse = morse[indice]
-
-    palavra_morse.push(letra_morse)
-}
-for(m = 0;m < palavra_morse.length;m++){
-    palavra_codificada += '  ';
-    palavra_codificada += palavra_morse[m]
-}
-for(m = 0;m < palavra_morse.length;m++){
-    indice = morse.indexOf(palavra_morse[m])
-    letra = abc[indice]
-
-    palavra_decodificada += letra;
-}
-console.log(palavra_morse)
-console.log(palavra_codificada)
-console.log(palavra_decodificada)*/
 
 function Codificar(){
     escolha = document.querySelector("#cifra_cesar").checked;
@@ -75,17 +26,23 @@ function Codificar_Morse(){
     user_input = document.querySelector("#text_input").value;
     output = document.querySelector("#output");
 
+    user_input = user_input.toLowerCase(user_input);
+    user_input = user_input.replace('ç','c')
+    user_input = user_input.replace(',','')
+    user_input = user_input.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
     codigo_morse = '';
-    palavra_morse = [];
 
     for(m = 0;m < user_input.length;m++){
         indice = abc.indexOf(user_input[m]);
         letra_morse = morse[indice];
-    
-        palavra_morse.push(letra_morse);
 
-        codigo_morse += ' ';
-        codigo_morse += letra_morse;
+        if(indice == 0){
+            codigo_morse += '/ ';
+        }else{
+            codigo_morse += letra_morse;
+            codigo_morse += ' ';
+        }
     }
 
     output.value = codigo_morse;
@@ -100,27 +57,35 @@ function Decodificar_Morse(){
 
     user_input += ' '
 
+    letra_decodificada = ''
     palavra_decodificada = '';
     letra = '';
     indice = 0;
 
     for(m = 0; m < user_input.length; m++){
-        if(user_input[m] === ' '){
+        if(user_input[m] == ' '){
+            if(user_input[(m + 1)] == '/'){
+                m += 2
+    
+                indice = morse.indexOf(letra)
+                letra_decodificada = abc[indice]
+    
+                palavra_decodificada += letra_decodificada
+                palavra_decodificada += ' '
+    
+                letra = ''
+            }else{
+                indice = morse.indexOf(letra)
+                letra_decodificada = abc[indice]
+    
+                palavra_decodificada += letra_decodificada
+    
+                letra = ''
+            }
             
-            indice = morse.indexOf(letra)
-    
-            palavra_decodificada += abc[indice]
-    
-            letra = ''
-        }else if(user_input[m] === '/'){
-            m++;
-            palavra_decodificada += ' '
-            letra = ''
+        }else{
+            letra += user_input[m]
         }
-        else{
-            letra += palavra_codificada[m]
-        }
-        
     }
 
     output.value = palavra_decodificada;
