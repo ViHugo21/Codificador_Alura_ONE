@@ -96,6 +96,11 @@ function Codificar_Cesar(){
     user_input = document.querySelector("#text_input").value;
     output = document.getElementById("output");
 
+    user_input = user_input.toLowerCase(user_input);
+    user_input = user_input.replace('ç','c')
+    user_input = user_input.replace(',','')
+    user_input = user_input.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
     frankstein = ''
 
     for(i = 0; i < user_input.length; i++){
