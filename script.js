@@ -55,10 +55,6 @@ function Decodificar_Morse(){
 
     user_input = user_input.trim();
 
-    if(user_input[0] != '.' || user_input[0] != '-'){
-        alert("A sua mensagem não parece ser código Morse")
-    }else{
-
     user_input += ' '
 
     letra_decodificada = ''
@@ -94,7 +90,6 @@ function Decodificar_Morse(){
 
     output.value = palavra_decodificada;
     no_input = document.querySelector("#no_input").hidden = true;
- }
 }
 
 function Codificar_Cesar(){
