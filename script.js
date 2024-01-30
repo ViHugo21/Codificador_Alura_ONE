@@ -46,7 +46,9 @@ function Codificar_Morse(){
     }
 
     output.value = codigo_morse;
+    output.style.height = '80%';
     no_input = document.querySelector("#no_input").hidden = true;
+    document.querySelector("#botao_copiar").hidden = false;
 }
 
 function Decodificar_Morse(){
@@ -89,7 +91,9 @@ function Decodificar_Morse(){
     }
 
     output.value = palavra_decodificada;
+    output.style.height = '80%';
     no_input = document.querySelector("#no_input").hidden = true;
+    document.querySelector("#botao_copiar").hidden = false;
 }
 
 function Codificar_Cesar(){
@@ -124,7 +128,9 @@ function Codificar_Cesar(){
     }
 
     output.value = frankstein;
+    output.style.height = '80%';
     no_input = document.querySelector("#no_input").hidden = true;
+    document.querySelector("#botao_copiar").hidden = false;
 }
 
 function Decodificar_Cesar(){
@@ -153,5 +159,13 @@ function Decodificar_Cesar(){
     }
 
     output.value = palavra_decodificada;
+    output.style.height = '80%';
     no_input = document.querySelector("#no_input").hidden = true;
+    document.querySelector("#botao_copiar").hidden = false;
+}
+
+function Copiar_Texto(){
+    mensagem = document.querySelector("#output").select();
+    document.execCommand("copy");
+    alert("Sua mensagem foi copiada.")
 }
