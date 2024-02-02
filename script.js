@@ -27,8 +27,9 @@ function Codificar_Morse(){
     output = document.querySelector("#output");
 
     user_input = user_input.toLowerCase(user_input);
-    user_input = user_input.replace('ç','c')
-    user_input = user_input.replace(',','')
+    user_input = user_input.replaceAll('ç','c');
+    user_input = user_input.replaceAll(',','');
+    user_input = user_input.replaceAll('.','');
     user_input = user_input.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
     codigo_morse = '';
@@ -101,8 +102,9 @@ function Codificar_Cesar(){
     output = document.getElementById("output");
 
     user_input = user_input.toLowerCase(user_input);
-    user_input = user_input.replace('ç','c')
-    user_input = user_input.replace(',','')
+    user_input = user_input.replaceAll('ç','c');
+    user_input = user_input.replaceAll(',','');
+    user_input = user_input.replaceAll('.','');
     user_input = user_input.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
     frankstein = ''
